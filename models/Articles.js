@@ -23,6 +23,10 @@ var ArticleSchema = new Schema({
   note: {
     type: Schema.Types.ObjectId,
     ref: "Notes"
+  },
+  published: {
+    type: Date,
+    required: true
   }
 });
 
