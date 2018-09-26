@@ -10,14 +10,22 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/newsScraper", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
+});
 
 var exhbs = require("express-handlebars");
-app.engine("handlebars", exhbs({ defaultLayout: "main"}));
+app.engine("handlebars", exhbs({
+  defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 require("./routes/html-routes.js")(app, db);
@@ -26,6 +34,6 @@ require("./routes/html-routes.js")(app, db);
 
 
 
-app.listen(PORT, function(){
+app.listen(PORT, function() {
   console.log("Listening on port " + PORT);
 });

@@ -10,11 +10,11 @@ function displayForm(thisBtn, articleId, extTitle, extBody) {
   thisBtn.next(".formContainer").html(form);
 }
 
-$(document).on("click", ".noteBtn", function(){
+$(document).on("click", ".noteBtn", function() {
   var articleId = $(this).attr("data-articleId");
   var thisBtn = $(this);
   var url = "/note/" + articleId;
-  axios.get(url).then(function(res){
+  axios.get(url).then(function(res) {
     var extTitle = "";
     var extBody = "";
 
@@ -27,7 +27,7 @@ $(document).on("click", ".noteBtn", function(){
   });
 });
 
-$(document).on("click", ".saveBtn", function(event){
+$(document).on("click", ".saveBtn", function(event) {
   event.preventDefault();
 
   var thisBtn = $(this);
@@ -37,14 +37,14 @@ $(document).on("click", ".saveBtn", function(event){
   axios.post(url, {
     title: $(this).parent().children(".inputTitle").val(),
     body: $(this).parent().children(".inputBody").val()
-  }).then(function(res){
+  }).then(function(res) {
     thisBtn.parent().remove();
   });
 });
 
-$(document).on("click", "#getLatest", function(event){
+$(document).on("click", "#getLatest", function(event) {
   event.preventDefault();
-  axios.get("/scrape").then(function(res){
+  axios.get("/scrape").then(function(res) {
     window.location.reload();
   });
 });
