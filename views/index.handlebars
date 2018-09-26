@@ -1,0 +1,15 @@
+{{#each data}}
+<div class="row">
+  <div class="column column-80">
+    <h4>
+      <a href="{{this.link}}" target="_blank">{{this.title}}</a>
+    </h4>
+    <p>{{this.summary}}</p>
+    <button class="button button-outline">Note</button>
+  </div>
+  <div class="column column-20">
+    <img src="{{this.image}}">
+  </div>
+</div>
+<hr>
+{{/each}}
