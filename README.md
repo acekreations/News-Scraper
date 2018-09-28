@@ -1,6 +1,6 @@
 # Startup News Scraper
 
-Startup News Scraper pulls in(by scraping) all of the newest and hottest startup news from Tech Crunch. You can then makes notes about which startups you want to invest in!
+Startup News Scraper pulls in(by scraping) all of the newest and hottest startup news from Tech Crunch. You can then make notes about which startups you want to invest in!
 
 [Live Site](https://startup-news-scraper.herokuapp.com/)
 
